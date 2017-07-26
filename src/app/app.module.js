@@ -10,6 +10,9 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var pb_list_component_1 = require("./Components/pb-list/pb-list.component");
 var contact_detail_component_1 = require("./Components/contactDetail/contact-detail.component");
+// Imports for loading & configuring the in-memory web api
+var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
+var in_memory_data_service_1 = require("./Services/in-memory-data.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,7 +20,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
+        imports: [
+            platform_browser_1.BrowserModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
+        ],
         declarations: [
             app_component_1.AppComponent,
             pb_list_component_1.PbListComponent,

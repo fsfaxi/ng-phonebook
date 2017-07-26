@@ -16,7 +16,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  \n    <div id=\"app-container\">\n      <h1>Hello {{name}}</h1>\n      <div id=\"app-innercontainer\">\n        <div id=\"app-left\">\n          <pb-list></pb-list>\n        </div>\n        <div id =\"app-right\">\n            <ct-detail></ct-detail>\n        </div>\n\n       \n       \n      </div>\n      \n    </div>    \n        \n        \n        \n  ",
+        template: "\n  \n    <div id=\"app-container\">\n      <h1>Hello {{name}}</h1>\n      <div id=\"app-innercontainer\">\n        <div id=\"app-left\">\n          <pb-list></pb-list>\n        </div>\n        <div id =\"app-right\">\n            <ct-detail></ct-detail>\n        </div>\n      </div>\n    </div>    \n        \n        \n        \n  ",
         styleUrls: ['./app.component.css'],
         providers: [contact_selected_service_1.ContactSelectedService],
     })
