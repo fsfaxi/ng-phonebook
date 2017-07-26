@@ -5,6 +5,8 @@ import { AppComponent }  from './app.component';
 import {PbListComponent} from './Components/pb-list/pb-list.component';
 import {ContactDetailComponent} from './Components/contactDetail/contact-detail.component';
 import { RouterModule }   from '@angular/router';
+import { HttpModule }    from '@angular/http';
+import { AppRoutingModule }     from './app-routing.module'
 
 // Imports for loading & configuring the in-memory web api
 
@@ -13,12 +15,8 @@ import { RouterModule }   from '@angular/router';
 @NgModule({
   imports:      [
      BrowserModule, 
-     RouterModule.forRoot([
-      {
-        path: 'detail/:id',
-        component: ContactDetailComponent
-      }
-     ])
+     HttpModule,
+     AppRoutingModule
 
      ],
   declarations: [ 
