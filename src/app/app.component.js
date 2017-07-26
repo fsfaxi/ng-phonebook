@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var contact_selected_service_1 = require("./Services/contact-selected.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Angular';
@@ -15,8 +16,9 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  \n    <div id=\"app-container\">\n      <h1>Hello {{name}}</h1>\n      <div id=\"app-innercontainer\">\n        <div id=\"app-left\">\n          <pb-list></pb-list>\n        </div>\n        <div id =\"app-right\">\n            <pb-view></pb-view>  \n        </div>\n\n       \n       \n      </div>\n      \n    </div>    \n        \n        \n        \n  ",
+        template: "\n  \n    <div id=\"app-container\">\n      <h1>Hello {{name}}</h1>\n      <div id=\"app-innercontainer\">\n        <div id=\"app-left\">\n          <pb-list></pb-list>\n        </div>\n        <div id =\"app-right\">\n            <ct-detail></ct-detail>\n        </div>\n\n       \n       \n      </div>\n      \n    </div>    \n        \n        \n        \n  ",
         styleUrls: ['./app.component.css'],
+        providers: [contact_selected_service_1.ContactSelectedService],
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

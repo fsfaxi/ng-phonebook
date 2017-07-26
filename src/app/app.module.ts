@@ -2,8 +2,8 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
-import {PbListComponent} from './pb-list/pb-list.component';
-import {PbViewComponent} from './pb-view/pb-view.component';
+import {PbListComponent} from './Components/pb-list/pb-list.component';
+import {ContactDetailComponent} from './Components/contactDetail/contact-detail.component';
 
 
 @NgModule({
@@ -12,9 +12,10 @@ import {PbViewComponent} from './pb-view/pb-view.component';
       
       AppComponent,
       PbListComponent,
-      PbViewComponent,
+      ContactDetailComponent,
       
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  
 })
 export class AppModule { }

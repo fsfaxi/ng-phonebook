@@ -9,27 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var contact_service_1 = require("../Services/contact.service");
-var PbListComponent = (function () {
-    function PbListComponent(contactService) {
-        this.contactService = contactService;
+var contact_selected_service_1 = require("../../Services/contact-selected.service");
+var ContactDetailComponent = (function () {
+    function ContactDetailComponent(cts) {
+        this.cts = cts;
     }
-    PbListComponent.prototype.ngOnInit = function () {
-        this.getContacts();
+    ContactDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.cts.currentCT.subscribe(function (ct) { return _this.cnt = ct; });
     };
-    PbListComponent.prototype.getContacts = function () {
-        this.contacts = this.contactService.getContacts();
-    };
-    return PbListComponent;
+    return ContactDetailComponent;
 }());
-PbListComponent = __decorate([
+ContactDetailComponent = __decorate([
     core_1.Component({
-        selector: 'pb-list',
-        templateUrl: './pb-list.component.html',
-        styleUrls: ['./pb-list.component.css'],
-        providers: [contact_service_1.ContactService],
+        selector: 'ct-detail',
+        templateUrl: './contact-detail.component.html',
+        styleUrls: ['./contact-detail.component.css'],
     }),
-    __metadata("design:paramtypes", [contact_service_1.ContactService])
-], PbListComponent);
-exports.PbListComponent = PbListComponent;
-//# sourceMappingURL=pb-list.component.js.map
+    __metadata("design:paramtypes", [contact_selected_service_1.ContactSelectedService])
+], ContactDetailComponent);
+exports.ContactDetailComponent = ContactDetailComponent;
+//# sourceMappingURL=contact-detail.component.js.map

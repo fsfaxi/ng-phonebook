@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
-var pb_list_component_1 = require("./pb-list/pb-list.component");
-var pb_view_component_1 = require("./pb-view/pb-view.component");
+var pb_list_component_1 = require("./Components/pb-list/pb-list.component");
+var contact_detail_component_1 = require("./Components/contactDetail/contact-detail.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,9 +21,9 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             pb_list_component_1.PbListComponent,
-            pb_view_component_1.PbViewComponent,
+            contact_detail_component_1.ContactDetailComponent,
         ],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
     })
 ], AppModule);
 exports.AppModule = AppModule;
