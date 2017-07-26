@@ -3,7 +3,7 @@
 
         <h2>List of Contacts</h2>
         <ul class="heroes">
-                <li *ngFor="let c of contacts" (click)="ctChange(c)">
+                <li *ngFor="let c of contacts" [routerLink]="['/detail', c.id]">
                         <span class="badge">{{c.id}}</span> {{c.name}}
                 </li>
         </ul>

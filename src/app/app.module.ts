@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import {PbListComponent} from './Components/pb-list/pb-list.component';
 import {ContactDetailComponent} from './Components/contactDetail/contact-detail.component';
+import { RouterModule }   from '@angular/router';
 
 // Imports for loading & configuring the in-memory web api
 
@@ -12,6 +13,12 @@ import {ContactDetailComponent} from './Components/contactDetail/contact-detail.
 @NgModule({
   imports:      [
      BrowserModule, 
+     RouterModule.forRoot([
+      {
+        path: 'detail/:id',
+        component: ContactDetailComponent
+      }
+     ])
 
      ],
   declarations: [ 

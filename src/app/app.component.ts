@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {ContactSelectedService} from './Services/contact-selected.service';
+import {ContactService} from './Services/contact.service'; 
+
 
 
 
@@ -15,6 +17,7 @@ import {ContactSelectedService} from './Services/contact-selected.service';
         </div>
         <div id ="app-right">
             <ct-detail></ct-detail>
+            <router-outlet></router-outlet>
         </div>
       </div>
     </div>    
@@ -23,7 +26,7 @@ import {ContactSelectedService} from './Services/contact-selected.service';
         
   `,
   styleUrls: [ './app.component.css' ],
-  providers : [ContactSelectedService],
+  providers : [ContactSelectedService,ContactService],
   
  
 })

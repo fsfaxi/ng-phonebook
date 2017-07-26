@@ -9,8 +9,13 @@ import { CONTACTS } from '../mock-contacts';
 @Injectable()
 export class ContactService {
 
-       getContacts(): Contact[] {
-           return CONTACTS;
+       getContacts(): Promise<Contact[]> {
+           return Promise.resolve(CONTACTS);
        }
+
+       getContact(id: number): Promise<Contact> {
+            return this.getContacts()
+                        .then(ct => ct.find(ct => ct.id === id));
+        }
 
 }

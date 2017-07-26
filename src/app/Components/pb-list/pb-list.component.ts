@@ -36,13 +36,14 @@ export class PbListComponent implements OnInit
 
     getContacts () : void 
     {
-        this.contacts = this.contactService.getContacts();
+        this.contactService.getContacts().then(ct => this.contacts = ct);
+
     }
 
-    ctChange (ct : Contact)
-    {
-        this.cts.changeCT(ct);
-    }
+    // ctChange (ct : Contact)
+    // {
+    //     this.cts.changeCT(ct);
+    // }
 
     constructor(private contactService : ContactService,private cts : ContactSelectedService){}
 
