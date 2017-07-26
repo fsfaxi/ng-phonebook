@@ -16,11 +16,7 @@ import {ContactSelectedService} from './Services/contact-selected.service';
         <div id ="app-right">
             <ct-detail></ct-detail>
         </div>
-
-       
-       
       </div>
-      
     </div>    
         
         
