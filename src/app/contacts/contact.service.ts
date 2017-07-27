@@ -18,4 +18,9 @@ export class ContactService {
                         .then(ct => ct.find(ct => ct.id === id));
         }
 
+        addContact(ct : Contact) 
+        {
+            this.getContacts().then(cts => cts.push(ct));
+        }
+
 }

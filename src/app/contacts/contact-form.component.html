@@ -1,0 +1,12 @@
+<div id="ct-form">
+        <label>Add New Contact:</label> 
+        Name    :<input type="text" #ctName />
+        Email   :<input email #ctEmail />
+        Address :<input type="text" #ctAddress />
+        Phone   :<input type="number" #ctPhone />
+                    
+
+        <button (click)="addContact(ctName.value,ctEmail.value,ctAddress,ctPhone); ctName.value='';ctEmail.value='';ctAddress.value='';ctPhone.value='';">
+        Add
+        </button>
+</div>

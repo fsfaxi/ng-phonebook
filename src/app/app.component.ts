@@ -12,7 +12,8 @@ import {ContactService} from './contacts/contact.service';
       <h1>Hello {{name}}</h1>
       <div id="app-innercontainer">
         <div id="app-left">
-          <pb-list></pb-list>
+          <ct-list></ct-list>
+          <ct-form></ct-form>
         </div>
         <div id ="app-right">
             <ct-detail></ct-detail>

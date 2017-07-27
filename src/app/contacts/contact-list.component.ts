@@ -6,7 +6,8 @@ import {ContactDetailComponent} from './contact-detail.component'
 
 
 @Component({
-    selector:'pb-list',
+
+    selector:'ct-list',
     templateUrl: './contact-list.component.html',
     styleUrls: [ './contact-list.component.css' ],
     providers : [ContactService],
@@ -17,7 +18,8 @@ import {ContactDetailComponent} from './contact-detail.component'
 export class ContactListComponent implements OnInit 
 {
 
-    contacts : Contact[]; 
+    contacts : Contact[];
+    cc : Contact; 
 
     constructor( 
         private contactService : ContactService,
@@ -36,6 +38,12 @@ export class ContactListComponent implements OnInit
     {
         this.contactService.getContacts().then(ct => this.contacts = ct);
 
+    }
+
+    addContact(ct : Contact)
+    {
+
+        this.contactService.addContact(ct);
     }
 
 
