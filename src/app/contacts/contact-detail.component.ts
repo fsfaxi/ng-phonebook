@@ -1,7 +1,7 @@
 import {Component,OnInit,Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
-import {ContactService} from '../Services/contact.service'; 
+import {ContactService} from './contact.service'; 
 import{Contact} from '../contact';
 import {PbListComponent} from './pb-list.component'; 
 import {ContactSelectedService} from '../Services/contact-selected.service';
