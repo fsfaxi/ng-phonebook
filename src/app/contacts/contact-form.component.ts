@@ -17,11 +17,26 @@ import {ContactDetailComponent} from './contact-detail.component'
 export class ContactFormComponent implements OnInit 
 {
 
+    ct : Contact; 
+    
+    constructor( 
+        private contactService : ContactService,
+
+    ){}
+
     ngOnInit(): void 
     {
         
  
     }
+
+    addContact(ctn,cte,cta,ctp)
+    {
+
+        let cc = new Contact(18,ctn,cte,cta,ctp);
+        this.contactService.addContact(cc);
+    }
+
 
 
 

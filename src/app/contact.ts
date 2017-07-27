@@ -1,10 +1,12 @@
 
 export class Contact {
 
-  id: number;
-  name: string;
-  email: string;
-  address: string;
-  phone : number;
+  constructor (
+      public id: number,
+      public name: string,
+      public email: string,
+      public address: string,
+      public phone : number,
+  ) {}
 
 }

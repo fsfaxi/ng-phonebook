@@ -19,7 +19,7 @@ export class ContactListComponent implements OnInit
 {
 
     contacts : Contact[];
-    cc : Contact; 
+    
 
     constructor( 
         private contactService : ContactService,
@@ -40,11 +40,6 @@ export class ContactListComponent implements OnInit
 
     }
 
-    addContact(ct : Contact)
-    {
-
-        this.contactService.addContact(ct);
-    }
 
 
 
