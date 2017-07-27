@@ -1,25 +1,29 @@
 
 <div *ngIf="cnt_details">
     <div >
+        <h1>{{cnt_details.name}} Details</h1>
         <table>
-            <tr>{{cnt.id}}</tr>            
-            <tr>{{cnt.name}}</tr>
-            <tr>{{cnt.address}}</tr>
-            <tr>{{cnt.email}}</tr>
-            <tr>{{cnt.phone}}</tr>
+            <tr>{{cnt_details.id}}</tr>            
+            <tr>{{cnt_details.name}}</tr>
+            <tr>{{cnt_details.address}}</tr>
+            <tr>{{cnt_details.email}}</tr>
+            <tr>{{cnt_details.phone}}</tr>
         </table>    
     </div>
-    <a [routerLink]="['/edit',cnt.id]" style="color:brown">Edit</a>
+    <a [routerLink]="['/edit',cnt_details.id]" style="color:brown">Edit</a>
 </div>
 
 <div *ngIf="cnt_edit">
     <div >
+        <h1>Edit {{cnt_edit.name}} Details</h1>
         <table>
-            <tr> Name    :<input type="text" #ctName /></tr>            
-            <tr> Email   :<input email #ctEmail /></tr>
-            <tr> Address :<input type="text" #ctAddress /></tr>
-            <tr> Phone   :<input type="number" #ctPhone /></tr>
+            <tr> Name    :<input type="text"   value="{{cnt_edit.name}}" #ctName /></tr>            
+            <tr> Email   :<input type="text"   value="{{cnt_edit.email}}" #ctEmail /></tr>
+            <tr> Address :<input type="text"   value="{{cnt_edit.address}}" #ctAddress /></tr>
+            <tr> Phone   :<input type="number" value="{{cnt_edit.phone}}" #ctPhone /></tr>
         </table>    
     </div>
-    <a [routerLink]="['/edit',cnt.id]" style="color:brown">Edit</a>
+    <button (click)="updateContact(ctName.value,ctEmail.value,ctAddress.value,ctPhone.value); ">
+    Update
+    </button>
 </div>

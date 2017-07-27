@@ -32,10 +32,11 @@ export class ContactFormComponent implements OnInit
 
     addContact(ctn,cte,cta,ctp)
     {
-
         let cc = new Contact(18,ctn,cte,cta,ctp);
         this.contactService.addContact(cc);
     }
+
+
 
 
 

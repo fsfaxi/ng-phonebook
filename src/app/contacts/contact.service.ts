@@ -23,4 +23,10 @@ export class ContactService {
             this.getContacts().then(cts => cts.push(ct));
         }
 
+        updateContact(ct : Contact,id)
+        {
+            console.log("updating contact");
+            this.getContact(id).then(cts => cts=ct);
+        }
+
 }
