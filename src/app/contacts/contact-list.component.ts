@@ -7,14 +7,14 @@ import {ContactDetailComponent} from './contact-detail.component'
 
 @Component({
     selector:'pb-list',
-    templateUrl: './pb-list.component.html',
-    styleUrls: [ './pb-list.component.css' ],
+    templateUrl: './contact-list.component.html',
+    styleUrls: [ './contact-list.component.css' ],
     providers : [ContactService],
     
 
 })
 
-export class PbListComponent implements OnInit 
+export class ContactListComponent implements OnInit 
 {
 
     contacts : Contact[]; 

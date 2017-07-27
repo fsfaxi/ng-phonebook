@@ -3,8 +3,7 @@ import 'rxjs/add/operator/switchMap';
 
 import {ContactService} from './contact.service'; 
 import{Contact} from '../contact';
-import {PbListComponent} from './pb-list.component'; 
-import {ContactSelectedService} from '../Services/contact-selected.service';
+import {ContactListComponent} from './contact-list.component'; 
 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
