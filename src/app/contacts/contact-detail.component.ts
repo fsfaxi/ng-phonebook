@@ -1,10 +1,10 @@
 import {Component,OnInit,Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
-import {ContactService} from '../../Services/contact.service'; 
-import{Contact} from '../../contact';
-import {PbListComponent} from '../pb-list/pb-list.component'; 
-import {ContactSelectedService} from '../../Services/contact-selected.service';
+import {ContactService} from '../Services/contact.service'; 
+import{Contact} from '../contact';
+import {PbListComponent} from './pb-list.component'; 
+import {ContactSelectedService} from '../Services/contact-selected.service';
 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';

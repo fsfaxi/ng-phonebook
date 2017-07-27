@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
  
-import { ContactDetailComponent}   from './Components/contactDetail/contact-detail.component';
+import { ContactDetailComponent}   from './contacts/contact-detail.component';
 
  
 const routes: Routes = [

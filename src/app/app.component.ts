@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {ContactSelectedService} from './Services/contact-selected.service';
-import {ContactService} from './Services/contact.service'; 
+import {ContactService} from './services/contact.service'; 
 
 
 
@@ -26,7 +25,7 @@ import {ContactService} from './Services/contact.service';
         
   `,
   styleUrls: [ './app.component.css' ],
-  providers : [ContactSelectedService,ContactService],
+  providers : [ContactService],
   
  
 })
