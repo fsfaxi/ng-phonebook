@@ -19,7 +19,8 @@ import { Location }                 from '@angular/common';
 export class ContactDetailComponent implements OnInit 
 {
 
-   cnt : Contact;
+   cnt_details : Contact;
+   cnt_edit : Contact;
    
    constructor(
        
@@ -31,9 +32,23 @@ export class ContactDetailComponent implements OnInit
 
    ngOnInit()
    {
-    //    this.cts.currentCT.subscribe(ct => this.cnt = ct);
-        this.route.paramMap
+
+        if (this.route.snapshot.url[0].path == "detail" )
+        {
+          this.route.paramMap
               .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
-              .subscribe(contact => this.cnt = contact);
+              .subscribe(contact => this.cnt_details = contact);
+
+        }
+        else
+        {
+          this.route.paramMap
+              .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
+              .subscribe(contact => this.cnt_edit = contact);
+
+        }
+    
    }
+
+
 }

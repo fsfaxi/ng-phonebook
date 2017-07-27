@@ -1,6 +1,6 @@
 
-<div>
-    <div *ngIf="cnt">
+<div *ngIf="cnt_details">
+    <div >
         <table>
             <tr>{{cnt.id}}</tr>            
             <tr>{{cnt.name}}</tr>
@@ -9,5 +9,17 @@
             <tr>{{cnt.phone}}</tr>
         </table>    
     </div>
-   
+    <a [routerLink]="['/edit',cnt.id]" style="color:brown">Edit</a>
+</div>
+
+<div *ngIf="cnt_edit">
+    <div >
+        <table>
+            <tr> Name    :<input type="text" #ctName /></tr>            
+            <tr> Email   :<input email #ctEmail /></tr>
+            <tr> Address :<input type="text" #ctAddress /></tr>
+            <tr> Phone   :<input type="number" #ctPhone /></tr>
+        </table>    
+    </div>
+    <a [routerLink]="['/edit',cnt.id]" style="color:brown">Edit</a>
 </div>
