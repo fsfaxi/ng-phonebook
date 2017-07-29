@@ -11,6 +11,8 @@
         </table>    
     </div>
     <a [routerLink]="['/edit',cnt_details.id]" style="color:brown">Edit</a>
+    <a [routerLink]="['/delete',cnt_details.id]" style="color:brown">Delete</a>
+    
 </div>
 
 <div *ngIf="cnt_edit">
@@ -23,7 +25,14 @@
             <tr> Phone   :<input type="number" value="{{cnt_edit.phone}}" #ctPhone /></tr>
         </table>    
     </div>
-    <button (click)="updateContact(ctName.value,ctEmail.value,ctAddress.value,ctPhone.value); ">
+    <button (click)="updateContact(cnt_edit.id,ctName.value,ctEmail.value,ctAddress.value,ctPhone.value); ">
     Update
     </button>
+</div>
+
+<div *ngIf="cnt_delete">
+
+    <h1>Are you sure you want to delete {{cnt_delete.name}} contact ?</h1>
+    <button (click)="deleteContact(cnt_delete.id);  " [routerLink]="['/']" >Yes</button>
+    <button (click)="cnt_delete=null;" [routerLink]="['/detail',cnt_delete.id]">No</button>
 </div>

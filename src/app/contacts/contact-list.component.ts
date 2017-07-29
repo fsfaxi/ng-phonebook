@@ -1,9 +1,14 @@
 import {Component,Directive} from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+
 import {ContactService} from './contact.service'; 
 import{Contact} from '../contact';
 import { OnInit } from '@angular/core';
 import {ContactDetailComponent} from './contact-detail.component'
 
+
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location }                 from '@angular/common';
 
 @Component({
 
@@ -23,6 +28,8 @@ export class ContactListComponent implements OnInit
 
     constructor( 
         private contactService : ContactService,
+        private route: ActivatedRoute,
+        private location: Location
 
     ){}
 

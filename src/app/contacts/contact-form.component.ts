@@ -4,6 +4,9 @@ import{Contact} from '../contact';
 import { OnInit } from '@angular/core';
 import {ContactDetailComponent} from './contact-detail.component'
 
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location }                 from '@angular/common';
+
 
 @Component({
 
@@ -21,6 +24,8 @@ export class ContactFormComponent implements OnInit
     
     constructor( 
         private contactService : ContactService,
+        private route: ActivatedRoute,
+        private location: Location
 
     ){}
 

@@ -25,8 +25,13 @@ export class ContactService {
 
         updateContact(ct : Contact,id)
         {
-            console.log("updating contact");
-            this.getContact(id).then(cts => cts=ct);
+            this.getContacts().then(cts =>cts.splice(cts.findIndex(t=>t.id == id),1,ct));
+        }
+
+        deleteContact(id)
+        {
+            this.getContacts().then(cts =>cts.splice(cts.findIndex(t=>t.id == id),1));
+           
         }
 
 }

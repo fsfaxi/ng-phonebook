@@ -21,6 +21,7 @@ export class ContactDetailComponent implements OnInit
 
    cnt_details : Contact;
    cnt_edit : Contact;
+   cnt_delete : Contact;
    p_name : String;
 
    constructor(
@@ -32,9 +33,7 @@ export class ContactDetailComponent implements OnInit
        ){}
 
    ngOnInit()
-   {
-
-          
+   {         
 
           if (typeof this.route.snapshot.data['name'] != "undefined")
           {
@@ -42,7 +41,7 @@ export class ContactDetailComponent implements OnInit
             if(this.p_name == "detail")
             {
                  this.displayPathName();
-                 this.cnt_edit=null;
+                 this.cnt_edit=this.cnt_delete=null;
                  this.route.paramMap
                      .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
                      .subscribe(contact => this.cnt_details = contact);
@@ -50,10 +49,18 @@ export class ContactDetailComponent implements OnInit
             }else if (this.p_name == "edit")
             {
                 this.displayPathName();
-                this.cnt_details=null;
+                this.cnt_details=this.cnt_delete=null;
                 this.route.paramMap
                     .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
                     .subscribe(contact => this.cnt_edit = contact);
+                    
+            }else if (this.p_name == "delete")
+            {
+                this.displayPathName();
+                this.cnt_details=this.cnt_edit=null;
+                this.route.paramMap
+                    .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
+                    .subscribe(contact => this.cnt_delete = contact);
             }
 
 
@@ -81,6 +88,11 @@ export class ContactDetailComponent implements OnInit
    {
         let cc = new Contact(id,ctn,cte,cta,ctp);
         this.cts.updateContact(cc,id);
+   }
+
+   deleteContact(id)
+   {
+       this.cts.deleteContact(id);
    }
 
 

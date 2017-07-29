@@ -6,11 +6,11 @@
         <ul class="heroes">
                 <li *ngFor="let c of contacts" [routerLink]="['/detail', c.id]">
                         <span class="badge">{{c.id}}</span> {{c.name}}
-                         
-                        
                 </li>
                
                 
         </ul>
+
+        <a routerLink="/add" routerLinkActive="active">Add new contact</a>
 
 </div>

@@ -13,11 +13,10 @@ import {ContactService} from './contacts/contact.service';
       <div id="app-innercontainer">
         <div id="app-left">
           <ct-list></ct-list>
-          <ct-form></ct-form>
+          
         </div>
         <div id ="app-right">
-            <ct-detail></ct-detail>
-            <router-outlet></router-outlet>
+           <router-outlet></router-outlet>
         </div>
       </div>
     </div>    
