@@ -39,31 +39,44 @@ export class ContactDetailComponent implements OnInit
           if (typeof this.route.snapshot.data['name'] != "undefined")
           {
             this.p_name =  this.route.snapshot.data['name'];
+            this.displayPathName();
             
-            if(this.p_name == "detail")
+            
+            if(this.p_name == "contact")
             {
-                 this.displayPathName();
-                 this.cnt_edit=this.cnt_delete=null;
-                 this.route.paramMap
-                     .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
-                     .subscribe(contact => this.cnt_details = contact);
+                    console.log(this.route.snapshot.root.children);
 
-            }else if (this.p_name == "edit")
-            {
-                this.displayPathName();
-                this.cnt_details=this.cnt_delete=null;
-                this.route.paramMap
-                    .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
-                    .subscribe(contact => this.cnt_edit = contact);
-                    
-            }else if (this.p_name == "delete")
-            {
-                this.displayPathName();
-                this.cnt_details=this.cnt_edit=null;
-                this.route.paramMap
-                    .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
-                    .subscribe(contact => this.cnt_delete = contact);
+                    if(this.p_name == "detail")
+                    {
+                        this.displayPathName();
+                        this.cnt_edit=this.cnt_delete=null;
+                        this.route.paramMap
+                            .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
+                            .subscribe(contact => this.cnt_details = contact);
+
+                    }else if (this.p_name == "edit")
+                    {
+                        this.displayPathName();
+                        this.cnt_details=this.cnt_delete=null;
+                        this.route.paramMap
+                            .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
+                            .subscribe(contact => this.cnt_edit = contact);
+                            
+                    }else if (this.p_name == "delete")
+                    {
+                        this.displayPathName();
+                        this.cnt_details=this.cnt_edit=null;
+                        this.route.paramMap
+                            .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
+                            .subscribe(contact => this.cnt_delete = contact);
+                    }
+
+
+
+
             }
+
+
 
 
           }

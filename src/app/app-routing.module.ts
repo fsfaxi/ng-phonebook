@@ -5,7 +5,7 @@ import {ContactModule} from './contacts/contact.module';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/contact', pathMatch: 'full'},
-  { path: 'contact', loadChildren: 'app/contacts/contact.module#ContactModule' },
+
 
 ];
 
