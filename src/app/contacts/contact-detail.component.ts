@@ -1,5 +1,6 @@
 import {Component,OnInit,Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
+import { CommonModule }       from '@angular/common';
 
 import {ContactService} from './contact.service'; 
 import{Contact} from '../contact';

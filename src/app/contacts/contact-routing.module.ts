@@ -5,18 +5,21 @@ import {ContactFormComponent} from './contact-form.component';
 import { ContactDetailComponent}   from './contact-detail.component';
 
  
-const routes: Routes = [
+const contactRoutes: Routes = [
 
-    {path: 'detail/:id',component: ContactDetailComponent,data: {name: 'detail'} },
-    {path: 'edit/:id',component: ContactDetailComponent,data: {name: 'edit'} },
-    {path: 'delete/:id',component: ContactDetailComponent,data: {name: 'delete'} },
-    {path: 'add',component: ContactFormComponent }
-    
-    
+    {path: '',component:ContactDetailComponent,
+          children: [
+      {path: 'detail/:id',component: ContactDetailComponent,data: {name: 'detail'} },
+      {path: 'edit/:id',component: ContactDetailComponent,data: {name: 'edit'} },
+      {path: 'delete/:id',component: ContactDetailComponent,data: {name: 'delete'} },
+      {path: 'add',component: ContactFormComponent }
+    ]
+    },
+  
 ];
  
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forChild(contactRoutes) ],
   exports: [ RouterModule ]
 })
 export class ContactRoutingModule {}

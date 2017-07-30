@@ -1,18 +1,17 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent }  from './app.component';
+import { ContactModule }     from './contacts/contact.module';
 
 import { RouterModule }   from '@angular/router';
-import { ContactModule }     from './contacts/contact.module';
-import {ContactRoutingModule} from './contacts/contact-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
   imports:      [
      BrowserModule, 
      ContactModule,
-     ContactRoutingModule
+     AppRoutingModule
 
      ],
   declarations: [ 

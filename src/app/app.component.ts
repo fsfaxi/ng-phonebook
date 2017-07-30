@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ContactService} from './contacts/contact.service'; 
-
+import { CommonModule }       from '@angular/common';
 
 
 

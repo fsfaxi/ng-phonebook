@@ -1,6 +1,7 @@
 import {Component,Directive} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
+
 import {ContactService} from './contact.service'; 
 import{Contact} from '../contact';
 import { OnInit } from '@angular/core';
