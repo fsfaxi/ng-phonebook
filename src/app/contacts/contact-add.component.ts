@@ -10,14 +10,14 @@ import { Location }                 from '@angular/common';
 
 @Component({
 
-    selector:'ct-form',
-    templateUrl: './contact-form.component.html',
+    selector:'ct-add',
+    templateUrl: './contact-add.component.html',
 
     
 
 })
 
-export class ContactFormComponent implements OnInit 
+export class ContactAddComponent implements OnInit 
 {
 
     ct : Contact; 

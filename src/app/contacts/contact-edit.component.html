@@ -1,0 +1,15 @@
+<div *ngIf="cnt">
+    <div >
+        <h1>Edit {{cnt.name}} Details</h1>
+        <table>
+            <tr> Name    :<input type="text"   value="{{cnt.name}}" #ctName /></tr>            
+            <tr> Email   :<input type="text"   value="{{cnt.email}}" #ctEmail /></tr>
+            <tr> Address :<input type="text"   value="{{cnt.address}}" #ctAddress /></tr>
+            <tr> Phone   :<input type="number" value="{{cnt.phone}}" #ctPhone /></tr>
+        </table>    
+    </div>
+    <button (click)="updateContact(cnt.id,ctName.value,ctEmail.value,ctAddress.value,ctPhone.value); ">
+    Update
+    </button>
+    <a [routerLink]="['/contact',cnt.id]" style="color:red">Back</a>
+</div>

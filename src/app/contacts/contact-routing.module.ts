@@ -1,18 +1,22 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import {ContactFormComponent} from './contact-form.component';
+import {ContactAddComponent} from './contact-add.component';
 import { ContactDetailComponent}   from './contact-detail.component';
+import {ContactComponent} from './contact.component';
+import{ContactEditComponent} from './contact-edit.component';
+import{ContactDeleteComponent} from './contact-delete.component';
+
 
  
 const contactRoutes: Routes = [
 
-    {path: '',component:ContactDetailComponent, data: {name: 'contact'},
+    {path: 'contact',component:ContactComponent, data: {name: 'contact'},
           children: [
-      {path: ':id',component: ContactDetailComponent,data: {name: 'detail'} },
-      {path: 'edit/:id',component: ContactDetailComponent,data: {name: 'edit'} },
-      {path: 'delete/:id',component: ContactDetailComponent,data: {name: 'delete'} },
-      {path: 'add',component: ContactFormComponent }
+      {path: ':id',component: ContactDetailComponent },
+      {path: 'edit/:id',component: ContactEditComponent },
+      {path: 'delete/:id',component: ContactDeleteComponent },
+      {path: 'add',component: ContactAddComponent }
     ]
     },
   

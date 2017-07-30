@@ -1,14 +1,18 @@
 import { NgModule }      from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
 
-// import { AppComponent }  from './app.component';
-import {ContactListComponent} from './contact-list.component';
-import {ContactDetailComponent} from './contact-detail.component';
-import {ContactFormComponent} from './contact-form.component';
+
 
 import { RouterModule }   from '@angular/router';
 import { CommonModule }       from '@angular/common';
+
+import {ContactListComponent} from './contact-list.component';
+import {ContactDetailComponent} from './contact-detail.component';
+import {ContactAddComponent} from './contact-add.component';
 import{ContactRoutingModule} from './contact-routing.module';
+import{ContactEditComponent} from './contact-edit.component';
+import{ContactDeleteComponent} from './contact-delete.component';
+
+
 
 
 @NgModule({
@@ -20,18 +24,19 @@ import{ContactRoutingModule} from './contact-routing.module';
 
      ],
   declarations: [ 
-      
-    //   AppComponent,
+
       ContactListComponent,
       ContactDetailComponent,
-      ContactFormComponent,
+      ContactAddComponent,
+      ContactEditComponent,
+      ContactDeleteComponent
       
   ],
   exports: [ 
      
       ContactListComponent,
       ContactDetailComponent,
-      ContactFormComponent,
+    //   ContactFormComponent,
   
   ],
 //   bootstrap:    [ AppComponent ],

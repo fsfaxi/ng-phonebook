@@ -10,29 +10,8 @@
             <tr>{{cnt_details.phone}}</tr>
         </table>    
     </div>
-    <a [routerLink]="['/edit',cnt_details.id]" style="color:brown">Edit</a>
-    <a [routerLink]="['/delete',cnt_details.id]" style="color:brown">Delete</a>
+    <a [routerLink]="['../edit',cnt_details.id]" style="color:brown">Edit</a>
+    <a [routerLink]="['../delete',cnt_details.id]" style="color:brown">Delete</a>
     
 </div>
 
-<div *ngIf="cnt_edit">
-    <div >
-        <h1>Edit {{cnt_edit.name}} Details</h1>
-        <table>
-            <tr> Name    :<input type="text"   value="{{cnt_edit.name}}" #ctName /></tr>            
-            <tr> Email   :<input type="text"   value="{{cnt_edit.email}}" #ctEmail /></tr>
-            <tr> Address :<input type="text"   value="{{cnt_edit.address}}" #ctAddress /></tr>
-            <tr> Phone   :<input type="number" value="{{cnt_edit.phone}}" #ctPhone /></tr>
-        </table>    
-    </div>
-    <button (click)="updateContact(cnt_edit.id,ctName.value,ctEmail.value,ctAddress.value,ctPhone.value); ">
-    Update
-    </button>
-</div>
-
-<div *ngIf="cnt_delete">
-
-    <h1>Are you sure you want to delete {{cnt_delete.name}} contact ?</h1>
-    <button (click)="deleteContact(cnt_delete.id);  " [routerLink]="['/']" >Yes</button>
-    <button (click)="cnt_delete=null;" [routerLink]="['/detail',cnt_delete.id]">No</button>
-</div>
