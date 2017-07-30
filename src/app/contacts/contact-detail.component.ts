@@ -39,6 +39,7 @@ export class ContactDetailComponent implements OnInit
           if (typeof this.route.snapshot.data['name'] != "undefined")
           {
             this.p_name =  this.route.snapshot.data['name'];
+            
             if(this.p_name == "detail")
             {
                  this.displayPathName();

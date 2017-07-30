@@ -8,13 +8,15 @@ import {ContactFormComponent} from './contact-form.component';
 
 import { RouterModule }   from '@angular/router';
 import { CommonModule }       from '@angular/common';
+import{ContactRoutingModule} from './contact-routing.module';
 
 
 @NgModule({
   imports:      [
     //  BrowserModule, 
      RouterModule,
-     CommonModule
+     CommonModule,
+     ContactRoutingModule
 
      ],
   declarations: [ 
