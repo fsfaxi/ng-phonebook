@@ -10,7 +10,7 @@
         <!--id      :<input type="number" #ctID />-->
                       
 
-        <button (click)="addContact(ctName.value,ctEmail.value,ctAddress.value,ctPhone.value);ctName.value='';ctEmail.value='';ctAddress.value='';ctPhone.value='';">
+        <button (click)="addContact(ctName.value,ctEmail.value,ctAddress.value,ctPhone.value);ctName.value='';ctEmail.value='';ctAddress.value='';ctPhone.value=''; " [routerLink]="['/contact']">
         Add
         </button>
 </div>

@@ -12,14 +12,14 @@ import { Location }                 from '@angular/common';
 
 @Component({
 
-    selector:'ct-add',
-    templateUrl: './contact-add.component.html',
+    selector:'ct-addd',
+    template: '<h1>add contact</h1>',
 
     
 
 })
 
-export class ContactAddComponent implements OnInit 
+export class CtAddComponent implements OnInit 
 {
 
     ct : Contact; 
@@ -49,6 +49,4 @@ export class ContactAddComponent implements OnInit
 
 
 }
-
-
 

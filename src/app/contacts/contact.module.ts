@@ -15,6 +15,8 @@ import{ContactDeleteComponent} from './contact-delete.component';
 
 
 
+
+
 @NgModule({
   imports:      [
     //  BrowserModule, 
@@ -29,14 +31,16 @@ import{ContactDeleteComponent} from './contact-delete.component';
       ContactDetailComponent,
       ContactAddComponent,
       ContactEditComponent,
-      ContactDeleteComponent
+      ContactDeleteComponent,
+     
       
   ],
   exports: [ 
      
       ContactListComponent,
       ContactDetailComponent,
-    //   ContactFormComponent,
+      ContactAddComponent, // Todo: why must add this to exports?
+    
   
   ],
 //   bootstrap:    [ AppComponent ],

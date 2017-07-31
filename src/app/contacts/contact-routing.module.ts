@@ -7,7 +7,6 @@ import {ContactComponent} from './contact.component';
 import{ContactEditComponent} from './contact-edit.component';
 import{ContactDeleteComponent} from './contact-delete.component';
 
-
  
 const contactRoutes: Routes = [
 
@@ -16,7 +15,9 @@ const contactRoutes: Routes = [
       {path: ':id',component: ContactDetailComponent },
       {path: 'edit/:id',component: ContactEditComponent },
       {path: 'delete/:id',component: ContactDeleteComponent },
-      {path: 'add',component: ContactAddComponent }
+      {path: 'add/:id',component: ContactAddComponent },
+ 
+      
     ]
     },
   
