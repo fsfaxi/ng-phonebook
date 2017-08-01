@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 import { CommonModule }       from '@angular/common';
-import {AuthService} from './auth/auth.service'; 
-
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'my-app',
   template: `     
-       
+        
+        <ng-auth></ng-auth>
         <router-outlet></router-outlet>
         
   `,
@@ -17,7 +17,9 @@ import {AuthService} from './auth/auth.service';
 })
 export class AppComponent  
 { 
-     constructor( 
-        private authService : AuthService,
-     ){}
+
+    constructor(public auth: AuthService) {
+      auth.handleAuthentication();
+     }
+
 }

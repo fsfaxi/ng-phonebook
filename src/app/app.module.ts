@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import {ContactComponent} from './contacts/contact.component';
 import {AuthComponent} from './auth/auth.component';
+import {AuthCallbackComponent} from './auth/auth-callback.component';
+
 
 
 import { ContactModule }     from './contacts/contact.module';
@@ -26,7 +28,8 @@ import {AuthService} from './auth/auth.service';
       
       AppComponent,
       ContactComponent,
-      AuthComponent
+      AuthComponent,
+      AuthCallbackComponent
       
   ],
   bootstrap:    [ AppComponent ],
