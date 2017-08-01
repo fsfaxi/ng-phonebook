@@ -10,10 +10,13 @@ export class AuthService {
     clientID: 'FfsRXRO27e93O1YsngPGsmXS7cbdioUd',
     domain: 'ngphonebook.eu.auth0.com',
     responseType: 'token id_token',
-    audience: 'https://ngphonebook.eu.auth0.com/userinfo',
+    audience: 'http://api.localhost:4200/contact',
+    
     redirectUri: 'http://localhost:4200/callback',      
-    scope: 'openid'
+    scope: 'openid profile'
   });
+
+  userProfile: any;
 
   constructor(public router: Router) {}
 
@@ -49,6 +52,7 @@ export class AuthService {
     localStorage.removeItem('expires_at');
     // Go back to the home route
     this.router.navigate(['/']);
+    location.reload();
   }
 
   public isAuthenticated(): boolean {
@@ -57,5 +61,20 @@ export class AuthService {
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
+
+  public getProfile(cb): void {
+  const accessToken = localStorage.getItem('access_token');
+  if (!accessToken) {
+    throw new Error('Access token must exist to fetch profile');
+  }
+
+  const self = this;
+  this.auth0.client.userInfo(accessToken, (err, profile) => {
+    if (profile) {
+      self.userProfile = profile;
+    }
+    cb(err, profile);
+  });
+}
 
 }

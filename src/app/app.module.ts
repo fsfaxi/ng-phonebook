@@ -3,37 +3,50 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 import {ContactComponent} from './contacts/contact.component';
-import {AuthComponent} from './auth/auth.component';
-import {AuthCallbackComponent} from './auth/auth-callback.component';
 
-
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { ContactModule }     from './contacts/contact.module';
+import {AuthModule} from './auth/auth.module';
 import { RouterModule }   from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 
 import {ContactService} from './contacts/contact.service'; 
 import {AuthService} from './auth/auth.service'; 
 
-
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('access_token'))
+  }), http, options);
+}
 
 @NgModule({
   imports:      [
      BrowserModule, 
      ContactModule,
-     AppRoutingModule
+     AppRoutingModule,
+     AuthModule
 
   ],
   declarations: [ 
       
       AppComponent,
       ContactComponent,
-      AuthComponent,
-      AuthCallbackComponent
+
       
   ],
   bootstrap:    [ AppComponent ],
-  providers : [ContactService,AuthService],
+  providers : [
+    
+    ContactService,
+    AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+    ],
   
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   template:'<h1>Setting up your session and redirecting to the app ...</h1>'
   
 })
-export class AuthCallbackComponent  
+export class AuthCallbackComponent implements OnInit
 { 
+
+    ngOnInit (){
+        // location.reload();
+    }
 }

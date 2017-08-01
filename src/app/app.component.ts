@@ -8,6 +8,7 @@ import {AuthService} from './auth/auth.service';
   template: `     
         
         <ng-auth></ng-auth>
+        <auth-profile></auth-profile>
         <router-outlet></router-outlet>
         
   `,
