@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/contact', pathMatch: 'full'},
+  // { path: '', redirectTo: '/contact', pathMatch: 'full'},
+  
 
 
 ];

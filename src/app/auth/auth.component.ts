@@ -1,21 +1,16 @@
 import { Component } from '@angular/core';
 
 import { CommonModule }       from '@angular/common';
-import {AuthService} from './auth/auth.service'; 
-
+import {AuthService} from './auth.service'; 
 
 @Component({
-  selector: 'my-app',
-  template: `     
-       
-        <router-outlet></router-outlet>
-        
-  `,
+  selector: 'ng-auth',
+  templateUrl: `./auth.component.html  `,
   
   
  
 })
-export class AppComponent  
+export class AuthComponent  
 { 
      constructor( 
         private authService : AuthService,
