@@ -2,6 +2,8 @@ import {Component,OnInit,Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
 import {ContactService} from './contact.service'; 
+import { AuthService} from '../auth/auth.service';
+
 import{Contact} from '../contact';
 
 
@@ -21,6 +23,7 @@ export class ContactDetailComponent implements OnInit
        
         private cts : ContactService,
         private route: ActivatedRoute,
+        private auth : AuthService
              
    ){}
 
@@ -30,28 +33,5 @@ export class ContactDetailComponent implements OnInit
             .switchMap((params: ParamMap) => this.cts.getContact(+params.get('id')))
             .subscribe(contact => this.cnt_details = contact);
    }
-
-
-
-//    displayPathName ()
-//    {
-//        if(typeof this.route.snapshot.data['name'] == "undefined")
-//         console.log("It is undefined !!");
-//        else
-//          console.log(this.route.snapshot.data['name']);
-
-//    }
-
-//    updateContact(id,ctn,cte,cta,ctp)
-//    {
-//         let cc = new Contact(id,ctn,cte,cta,ctp);
-//         this.cts.updateContact(cc,id);
-//    }
-
-//    deleteContact(id)
-//    {
-//        this.cts.deleteContact(id);
-//    }
-
 
 }

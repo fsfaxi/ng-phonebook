@@ -9,8 +9,8 @@
             <tr>{{cnt_details.phone}}</tr>
         </table>    
     </div>
-    <a [routerLink]="['../edit',cnt_details.id]" style="color:brown">Edit</a>
-    <a [routerLink]="['../delete',cnt_details.id]" style="color:brown">Delete</a>
+    <a *ngIf="auth.isAuthenticated()" [routerLink]="['../edit',cnt_details.id]" style="color:brown">Edit</a>
+    <a *ngIf="auth.isAuthenticated()" [routerLink]="['../delete',cnt_details.id]" style="color:brown">Delete</a>
     
 </div>
 

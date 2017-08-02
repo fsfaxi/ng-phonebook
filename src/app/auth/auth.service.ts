@@ -6,6 +6,8 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
 
+  requestedScopes: string = 'openid profile read:messages write:messages';
+
   auth0 = new auth0.WebAuth({
     clientID: 'FfsRXRO27e93O1YsngPGsmXS7cbdioUd',
     domain: 'ngphonebook.eu.auth0.com',
@@ -13,7 +15,7 @@ export class AuthService {
     audience: 'http://api.localhost:4200/contact',
     
     redirectUri: 'http://localhost:4200/callback',      
-    scope: 'openid profile'
+    scope: this.requestedScopes
   });
 
   userProfile: any;
@@ -38,11 +40,15 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
+
+    const scopes = authResult.scope || this.requestedScopes || '';
     // Set the time that the access token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    localStorage.setItem('scopes', JSON.stringify(scopes));
+
   }
 
   public logout(): void {
@@ -75,6 +81,11 @@ export class AuthService {
     }
     cb(err, profile);
   });
+}
+
+public userHasScopes(scopes: Array<string>): boolean {
+  const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  return scopes.every(scope => grantedScopes.includes(scope));
 }
 
 }

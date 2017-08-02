@@ -14,6 +14,8 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {ContactService} from './contacts/contact.service'; 
 import {AuthService} from './auth/auth.service'; 
+import {AuthGuardService } from './auth/auth-guard.service';
+
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -40,6 +42,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   providers : [
     
     ContactService,
+    AuthGuardService,
     AuthService,
     {
       provide: AuthHttp,

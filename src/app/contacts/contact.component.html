@@ -4,7 +4,7 @@
       <h1>Welcome to ng-phonebook app</h1>
       <div id="app-innercontainer">
         <div id="app-left">
-           <a routerLink="./add/1" routerLinkActive="active">Add new contact</a>
+           <a *ngIf="auth.isAuthenticated()" routerLink="./add/1" routerLinkActive="active">Add new contact</a>
           <ct-list></ct-list>
           
         </div>

@@ -1,8 +1,8 @@
 import {Component,OnInit,Input} from '@angular/core';
 
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Location }                 from '@angular/common';
-
+// import { ActivatedRoute, ParamMap } from '@angular/router';
+// import { Location }                 from '@angular/common';
+import { AuthService} from '../auth/auth.service';
 
 @Component({
     selector:'ct-main',
@@ -11,12 +11,12 @@ import { Location }                 from '@angular/common';
 
 })
 
-export class ContactComponent implements OnInit 
+export class ContactComponent  
 {
     
-    ngOnInit()
-    {
+    constructor( 
+        private auth : AuthService
+    ){}
 
-    }
 
 }
