@@ -6,13 +6,13 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
 
-  requestedScopes: string = 'openid profile read:messages write:messages';
+  requestedScopes: string = 'openid profile read:contact';
 
   auth0 = new auth0.WebAuth({
     clientID: 'FfsRXRO27e93O1YsngPGsmXS7cbdioUd',
     domain: 'ngphonebook.eu.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://api.localhost:4200/contact',
+    audience: 'http://localhost:50194/api/contact',
     
     redirectUri: 'http://localhost:4200/callback',      
     scope: this.requestedScopes

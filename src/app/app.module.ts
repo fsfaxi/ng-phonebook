@@ -1,8 +1,9 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import {ContactComponent} from './contacts/contact.component';
+import {PingComponent} from './ping/ping.component';
 
 import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -28,13 +29,15 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
      BrowserModule, 
      ContactModule,
      AppRoutingModule,
-     AuthModule
-
+     AuthModule,
+     HttpModule
+     
   ],
   declarations: [ 
       
       AppComponent,
-      ContactComponent,
+      PingComponent,
+
 
       
   ],
@@ -42,6 +45,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   providers : [
     
     ContactService,
+    AuthHttp,
     AuthGuardService,
     AuthService,
     {
