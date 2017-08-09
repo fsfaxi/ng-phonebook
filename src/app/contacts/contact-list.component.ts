@@ -11,6 +11,9 @@ import {ContactDetailComponent} from './contact-detail.component'
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
 @Component({
 
     selector:'ct-list',
@@ -25,12 +28,15 @@ export class ContactListComponent implements OnInit
 {
 
     contacts : Contact[];
-    
+    API_URL: string = 'http://localhost:50194/api/contact';
+    ct : Contact = new Contact (null,null,null,null,null);
+
 
     constructor( 
         private contactService : ContactService,
         private route: ActivatedRoute,
-        private location: Location
+        private location: Location,
+        public authHttp: AuthHttp
 
     ){}
 
@@ -38,6 +44,8 @@ export class ContactListComponent implements OnInit
     ngOnInit(): void 
     {
         this.getContacts();
+
+
  
     }
 

@@ -6,14 +6,13 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
 
-  requestedScopes: string = 'openid profile read:contact';
+  requestedScopes: string = 'openid profile read:contacts';
 
   auth0 = new auth0.WebAuth({
     clientID: 'FfsRXRO27e93O1YsngPGsmXS7cbdioUd',
     domain: 'ngphonebook.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'http://localhost:50194/api/contact',
-    
     redirectUri: 'http://localhost:4200/callback',      
     scope: this.requestedScopes
   });
@@ -24,6 +23,7 @@ export class AuthService {
 
   public login(): void {
     this.auth0.authorize();
+    console.log(this.auth0.scope);
   }
 
   public handleAuthentication(): void {
@@ -48,6 +48,8 @@ export class AuthService {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     localStorage.setItem('scopes', JSON.stringify(scopes));
+
+    
 
   }
 
@@ -87,5 +89,6 @@ public userHasScopes(scopes: Array<string>): boolean {
   const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
   return scopes.every(scope => grantedScopes.includes(scope));
 }
+
 
 }

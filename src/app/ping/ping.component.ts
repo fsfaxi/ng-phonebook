@@ -12,14 +12,14 @@ import {Contact} from '../contact';
   template: `     
         
     <h2>Ping Test</h2>
-    <div *ngIf="ct" >
+    <div *ngIf="cts" >
         <table>
-            <tr><td>Name :   </td>  <td>{{ct.name}}</td></tr>
-            <tr><td>Address :</td>  <td>{{ct.address}}</td></tr>
-            <tr><td>Email:   </td>  <td>{{ct.email}}</td></tr>
-            <tr><td>Phone :  </td>  <td>{{ct.phone}}</td></tr>
+            <tr><td>Name :   </td>  <td>{{cts[1].name}}</td></tr>
+            <tr><td>Address :</td>  <td>{{cts[1].address}}</td></tr>
+            <tr><td>Email:   </td>  <td>{{cts[1].email}}</td></tr>
+            <tr><td>Phone :  </td>  <td>{{cts[1].phone}}</td></tr>
         </table>
-    {{ct.name}}</div>    
+   </div>    
   `,
   
   
@@ -29,15 +29,19 @@ import {Contact} from '../contact';
 export class PingComponent implements OnInit 
 {
 
-  API_URL: string = 'http://localhost:50194/api/contact/1';
+  API_URL: string = 'http://localhost:50194/api/contact';
   ct : Contact = new Contact (null,null,null,null,null);
+  cts : Contact [];
 
   constructor(public authHttp: AuthHttp) {}
 
     ngOnInit(): void 
     {
-        this.securedPing(); 
- 
+        //this.securedPing(); 
+        this.testPing();
+        while(this.cts = undefined){
+          console.log(this.cts);
+        }
     }
 
   public securedPing(): void {
@@ -48,10 +52,18 @@ export class PingComponent implements OnInit
                 this.ct.name = data.name;
                 this.ct.address=data.address;
                 this.ct.email=data.email;
-                this.ct.phone=data.phone;
+                this.ct.phone=data.phone_number;
             }
     
        
      );
+  }
+
+  public testPing(): Contact [] 
+  {
+    this.authHttp.get(`${this.API_URL}`)
+        .map(res => res.json())
+        .subscribe( (res : Contact[] ) => this.cts=res.slice(0));
+        return this.cts;
   }
 }
