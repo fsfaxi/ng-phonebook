@@ -10,3 +10,14 @@ export class Contact {
   ) {}
 
 }
+
+export class AddContact {
+
+  constructor (
+      public name: string,
+      public email: string,
+      public address: string,
+      public phone : number,
+  ) {}
+
+}

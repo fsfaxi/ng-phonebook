@@ -5,6 +5,7 @@ import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import 'rxjs/add/operator/map';
 
+
 import {Contact} from '../contact';
 
 @Component({
@@ -39,9 +40,6 @@ export class PingComponent implements OnInit
     {
         //this.securedPing(); 
         this.testPing();
-        while(this.cts = undefined){
-          console.log(this.cts);
-        }
     }
 
   public securedPing(): void {
@@ -66,4 +64,8 @@ export class PingComponent implements OnInit
         .subscribe( (res : Contact[] ) => this.cts=res.slice(0));
         return this.cts;
   }
+
+
+
+
 }

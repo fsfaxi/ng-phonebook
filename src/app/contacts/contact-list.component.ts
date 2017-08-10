@@ -27,7 +27,7 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 export class ContactListComponent implements OnInit 
 {
 
-    contacts : Contact[];
+    cts : Contact[];
     API_URL: string = 'http://localhost:50194/api/contact';
     ct : Contact = new Contact (null,null,null,null,null);
 
@@ -43,18 +43,19 @@ export class ContactListComponent implements OnInit
 
     ngOnInit(): void 
     {
-        this.getContacts();
-
-
- 
-    }
-
-
-    getContacts () : void 
-    {
-        this.contactService.getContacts().then(ct => this.contacts = ct);
+        this.getContactsApi();
 
     }
+
+
+    getContactsApi ()
+       {
+        this.authHttp.get(`${this.API_URL}`)
+          .map(res => res.json())
+          .subscribe( (res : Contact[] ) => this.cts=res.slice(0));
+
+       }
+
 
 
 

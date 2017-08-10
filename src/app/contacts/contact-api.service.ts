@@ -25,8 +25,10 @@ export class ContactApiService {
         this.authHttp.get(`${this.API_URL}`)
           .map(res => res.json())
           .subscribe( (res : Contact[] ) => this.cts=res.slice(0));
-          return this.cts;
+
        }
+
+
 
     //    getContact(id: number): Promise<Contact> {
     //         return this.getContacts()
